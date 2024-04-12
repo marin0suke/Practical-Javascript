@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Practical Javascript</title>
+  </head>
+
+  <body>
+    <script>
+      var todos = [
+        {todoText: "Item 1", completed: false}, 
+        {todoText: "Item 2", completed: false}, 
+        {todoText: "Item 3", completed: false}
+      ];
+
+      displayTodos();
+
+      function add(initialTodoText) {
+        todos.push({todoText: initialTodoText, completed: false});
+        displayTodos();
+      }
+
+      function edit(position, editedTodoText) {
+        todos[position].todoText = editedTodoText;
+        displayTodos();
+      }
+      
+      function remove(position) {
+        todos.splice(position, 1);
+        displayTodos();
+      }
+
+      function toggleTodo(position) {
+        if (todos[position].completed === false) {
+            todos[position].completed = true;
+        } else {
+          todos[position].completed = false;
+        }
+        
+        displayTodos();
+
+      }
+
+      // V5 it should have a function for displaying todos
+      function displayTodos() {
+        for (let i = 0; i < todos.length; i++) {
+          console.log(todos[i]);
+        }
+      }
+
+    
+
+    </script>
+  </body>
+</html>
