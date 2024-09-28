@@ -47,7 +47,32 @@
           console.log(todos[i]);
         }
       }
+      
+      function toggleAll() {
+        // 1. if everything is true, change everything to false.
+        // find out if everything is true.
+        // how many todos in total? use todos.length
+        // how many todos are completed?
 
+        var completedTodos = 0; // initalise counter.
+
+        for (i = 0; i < todos.length; i++) {  // checks each item list and increments counter completedTodos for each items where completed prop set to true.
+          if (todos[i].completed === true) {
+              completedTodos++;
+            }
+        }
+
+        if (completedTodos === todos.length) { // check if everything is true.
+          for (i = 0; i < todos.length; i++) { // iterate over the todos array. 
+            todos[i].completed = false; // change completed prop to false.
+          }
+        }
+
+
+        // if everything is false, ==> change everything to true.
+        // if everything is true ==> change everything is false.
+        // if mixed ==> change everything to true.
+      }
     
 
     </script>
