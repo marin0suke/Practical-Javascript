@@ -30,7 +30,7 @@
         displayTodos();
       }
 
-      function toggleTodo(position) {
+      function toggle(position) {
         if (todos[position].completed === false) {
             todos[position].completed = true;
         } else {
@@ -58,20 +58,21 @@
 
         for (i = 0; i < todos.length; i++) {  // checks each item list and increments counter completedTodos for each items where completed prop set to true.
           if (todos[i].completed === true) {
-              completedTodos++;
-            }
+            completedTodos++;
+          }
         }
 
         if (completedTodos === todos.length) { // check if everything is true.
           for (i = 0; i < todos.length; i++) { // iterate over the todos array. 
             todos[i].completed = false; // change completed prop to false.
+          } 
+        } else { // we already checked if everything is true - which means in all other cases, either non true, or some true. 
+          for (i = 0; i < todos.length; i++) {
+            todos[i].completed = true; // if none are true, we want to toggle to true. if some are true, we wat to toggle all false to true. 
           }
-        }
+        } // once they are all true, we can toggle to all false if we want. 
 
-
-        // if everything is false, ==> change everything to true.
-        // if everything is true ==> change everything is false.
-        // if mixed ==> change everything to true.
+        displayTodos(); // so we see all the changes at the end.
       }
     
 
